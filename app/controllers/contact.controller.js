@@ -18,23 +18,25 @@ exports.create = (req, res) => {
 
     // Save Contact in the database
     Contact.create(contact, (err, data) => {
-        if (err)
+        if (err) {
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while creating the Contact."
             });
-        else res.send(data);
+        } else { res.send(data); }
     });
 };
 
 // Retrieve all Contacts from the database.
 exports.findAll = (req, res) => {
     Contact.getAll((err, data) => {
-        if (err)
+        if (err) {
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while retrieving contacts."
             });
-        else res.send(data);
+        } else {
+            res.send(data);
+        }
     });
 };
