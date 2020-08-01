@@ -10,12 +10,10 @@ const Contact = function (contact) {
 Contact.create = (newContact, result) => {
     sql.query("INSERT INTO contacts SET ?", newContact, (err, res) => {
         if (err) {
-            console.log("error: ", err);
             result(err, null);
             return;
         }
 
-        console.log("created contact: ", { id: res.insertId, ...newContact });
         result(null, { id: res.insertId, ...newContact });
     });
 };
@@ -23,7 +21,6 @@ Contact.create = (newContact, result) => {
 Contact.getAll = result => {
     sql.query("SELECT * FROM contacts", (err, res) => {
         if (err) {
-            console.log("error: ", err);
             result(null, err);
             return;
         }
