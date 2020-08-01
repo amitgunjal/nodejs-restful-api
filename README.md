@@ -5,6 +5,8 @@
 	 - MySQL
  - Database Setup
 	 - source `app/migrations/queries.sql`
+ - Create `.env` at root level
+	 - Introduce `PORT`, `HOST`, `USER`, `PASS`, and `DB`
  - How to Run
 	 - `yarn && yarn start`
  - Contribution
